@@ -1,7 +1,7 @@
 pkgname=nginx-vod
 _pkgname=nginx
-pkgver=1.13.10
-_vodver=1.22
+pkgver=1.14.0
+_vodver=1.23
 pkgrel=1
 pkgdesc='Lightweight HTTP server and IMAP/POP3 proxy server, with nginx-vod-module'
 arch=('i686' 'x86_64')
@@ -24,8 +24,8 @@ source=($url/download/nginx-$pkgver.tar.gz
         https://github.com/kaltura/nginx-vod-module/archive/$_vodver.tar.gz
         service
         logrotate)
-sha512sums=('33c894e00a13703db4195bc4a1f8fd512af165d8793ba00a7bf25e0e410136c8b4a94b14a81885be5fa2625626c810802282162c6d7a4f1f251a5ffccab218b3'
-         'ee1d55c406ff7c0943ec3c6069d087a238021b5be7839c9fa7e61bd8d324dc1a831d9ee1ec9ee6f6b7b0e0514cd87ff3690ac4183525a0980537d46175c430ad'
+sha512sums=('40f086c9f741727e6f55802b6c3a66f081f7c49c38646dc1491aa3e3c35bae12b65ea6594386609fc849bcd99a60d7cd8ecb3f8d519e0e9ab8db01d653e930e9'
+         '9ab8a051ac1d68e32f2b6bddc9985adb5580d3d9af9b6c2ba83cf0348b1d2b231f113f0237375d08dae99c884e7f0f5529ac4a0ad47c1956aacab3b0bf66fb0a'
          '4f90db6b8b5c13762b96ddff9ca4e846762d46b90be27c7c9d54cec6f7f12fc95585f8455919296edb0255405dd80af8ee86780b805631b72eb74ee59f359715'
          '9232342c0914575ce438c5a8ee7e1c25b0befb457a2934e9cb77d1fe9a103634ea403b57bc0ef0cd6cf72248aee5e5584282cea611bc79198aeac9a65d8df5d7')
 
@@ -63,6 +63,9 @@ _stable_flags=(
 )
 
 build() {
+  sed -i 's/CODEC_CAP_VARIABLE_FRAME_SIZE/AV_CODEC_CAP_VARIABLE_FRAME_SIZE/' nginx-vod-module-$_vodver/vod/filters/audio_encoder.c
+  sed -i 's/CODEC_FLAG_GLOBAL_HEADER/AV_CODEC_FLAG_GLOBAL_HEADER/' nginx-vod-module-$_vodver/vod/filters/audio_encoder.c
+
   cd $_pkgname-$pkgver
 
   ./configure \
