@@ -1,6 +1,6 @@
 pkgname=nginx-vod
 _pkgname=nginx
-pkgver=1.14.0
+pkgver=1.15.0
 _vodver=1.23
 _davextver=0.1.0
 pkgrel=1
@@ -26,7 +26,7 @@ source=($url/download/nginx-$pkgver.tar.gz
         https://github.com/arut/nginx-dav-ext-module/archive/v$_davextver.tar.gz
         service
         logrotate)
-sha512sums=('40f086c9f741727e6f55802b6c3a66f081f7c49c38646dc1491aa3e3c35bae12b65ea6594386609fc849bcd99a60d7cd8ecb3f8d519e0e9ab8db01d653e930e9'
+sha512sums=('7dbdf437d8d546059a8a03aa9c8d2be98dba7306e2daa49611c16f1e56413a25d4c622da13a815e8075a10f4a0cd744167deaeb971c0a69189940a7a05fa32df'
          '9ab8a051ac1d68e32f2b6bddc9985adb5580d3d9af9b6c2ba83cf0348b1d2b231f113f0237375d08dae99c884e7f0f5529ac4a0ad47c1956aacab3b0bf66fb0a'
          '47b1686b483640a7fdcbf8081aae2e9f83fb0072ef0940b1cd7f8ddf4932317740b38f0dd4a8f3dd8da074c11c70038ac6758c0feafd3851331acdc85f3e0ee1'
          '4f90db6b8b5c13762b96ddff9ca4e846762d46b90be27c7c9d54cec6f7f12fc95585f8455919296edb0255405dd80af8ee86780b805631b72eb74ee59f359715'
