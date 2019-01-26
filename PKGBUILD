@@ -1,14 +1,14 @@
 pkgname=nginx-vod
 _pkgname=nginx
-pkgver=1.15.0
-_vodver=1.23
-_davextver=0.1.0
+pkgver=1.15.8
+_vodver=1.24
+_davextver=3.0.0
 pkgrel=1
 pkgdesc='Lightweight HTTP server and IMAP/POP3 proxy server, with nginx-vod-module'
 arch=('i686' 'x86_64')
 url='https://nginx.org'
 license=('custom')
-depends=('pcre' 'zlib' 'openssl' 'geoip' 'mailcap')
+depends=('libxml2' 'libxslt' 'pcre' 'zlib' 'openssl' 'geoip' 'mailcap')
 provides=('nginx')
 conflicts=('nginx')
 backup=('etc/nginx/fastcgi.conf'
@@ -26,9 +26,9 @@ source=($url/download/nginx-$pkgver.tar.gz
         https://github.com/arut/nginx-dav-ext-module/archive/v$_davextver.tar.gz
         service
         logrotate)
-sha512sums=('7dbdf437d8d546059a8a03aa9c8d2be98dba7306e2daa49611c16f1e56413a25d4c622da13a815e8075a10f4a0cd744167deaeb971c0a69189940a7a05fa32df'
-         '9ab8a051ac1d68e32f2b6bddc9985adb5580d3d9af9b6c2ba83cf0348b1d2b231f113f0237375d08dae99c884e7f0f5529ac4a0ad47c1956aacab3b0bf66fb0a'
-         '47b1686b483640a7fdcbf8081aae2e9f83fb0072ef0940b1cd7f8ddf4932317740b38f0dd4a8f3dd8da074c11c70038ac6758c0feafd3851331acdc85f3e0ee1'
+sha512sums=('4509f0a0adf189bbdfa068adb120d0c26e594283b84c75f7df256b46e505aab5adda50b845abbbe07ab36f54c5ebefac4660fa315546856fb5114067e70394d3'
+         'daa9b23858937e57f1bcd5f4400b33155ab4e0e455eea01d80eec5285fc85bd10db63d80a1560f1fea51914a4eb4c59cc54110b7e4de208adbf52ea691cfd6d9'
+         'd0193ba90f1ef46c4e470630c4394bdf99d94fd2e3bd8be6cb2ba1655ec59944b1269025f032b79dc2c6dad366e54389ef6a6da2ddeb91d535a4027f2162fbde'
          '4f90db6b8b5c13762b96ddff9ca4e846762d46b90be27c7c9d54cec6f7f12fc95585f8455919296edb0255405dd80af8ee86780b805631b72eb74ee59f359715'
          '9232342c0914575ce438c5a8ee7e1c25b0befb457a2934e9cb77d1fe9a103634ea403b57bc0ef0cd6cf72248aee5e5584282cea611bc79198aeac9a65d8df5d7')
 
@@ -66,8 +66,6 @@ _stable_flags=(
 )
 
 build() {
-  sed -i 's/CODEC_CAP_VARIABLE_FRAME_SIZE/AV_CODEC_CAP_VARIABLE_FRAME_SIZE/' nginx-vod-module-$_vodver/vod/filters/audio_encoder.c
-  sed -i 's/CODEC_FLAG_GLOBAL_HEADER/AV_CODEC_FLAG_GLOBAL_HEADER/' nginx-vod-module-$_vodver/vod/filters/audio_encoder.c
 
   cd $_pkgname-$pkgver
 
