@@ -1,7 +1,7 @@
 pkgname=nginx-vod
 _pkgname=nginx
-pkgver=1.15.8
-_vodver=1.24
+pkgver=1.17.4
+_vodver=1.25
 _davextver=3.0.0
 pkgrel=1
 pkgdesc='Lightweight HTTP server and IMAP/POP3 proxy server, with nginx-vod-module'
@@ -26,8 +26,8 @@ source=($url/download/nginx-$pkgver.tar.gz
         https://github.com/arut/nginx-dav-ext-module/archive/v$_davextver.tar.gz
         service
         logrotate)
-sha512sums=('4509f0a0adf189bbdfa068adb120d0c26e594283b84c75f7df256b46e505aab5adda50b845abbbe07ab36f54c5ebefac4660fa315546856fb5114067e70394d3'
-         'daa9b23858937e57f1bcd5f4400b33155ab4e0e455eea01d80eec5285fc85bd10db63d80a1560f1fea51914a4eb4c59cc54110b7e4de208adbf52ea691cfd6d9'
+sha512sums=('fb7275c47d2416b597415f736771f8f4f3cdbba33728d9ca8ddb56b8266076a5ec5e63c735215a8d022f685b67d663fdaaac0c95db465a82f79f01d502feaa82'
+         '11a97ffa28d6078aa57ad1821421928f6e2a05235a2f384cd2b498e7998f1025edc1ee163a900937ee251b49bd9381813e71248e67d537531b91a998b1610c56'
          'd0193ba90f1ef46c4e470630c4394bdf99d94fd2e3bd8be6cb2ba1655ec59944b1269025f032b79dc2c6dad366e54389ef6a6da2ddeb91d535a4027f2162fbde'
          '4f90db6b8b5c13762b96ddff9ca4e846762d46b90be27c7c9d54cec6f7f12fc95585f8455919296edb0255405dd80af8ee86780b805631b72eb74ee59f359715'
          '9232342c0914575ce438c5a8ee7e1c25b0befb457a2934e9cb77d1fe9a103634ea403b57bc0ef0cd6cf72248aee5e5584282cea611bc79198aeac9a65d8df5d7')
